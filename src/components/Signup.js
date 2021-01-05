@@ -76,12 +76,12 @@ const Signup = () => {
 							type='submit'
 							disabled={loading}
 						>
-							Signup
+							Sign up
 						</Button>
 					</Form>
 
 					<div className='text-center mt-4'>
-						<Link to='/login'>Login?</Link>
+						<Link to='/login'>Log in?</Link>
 					</div>
 				</Col>
 			</Row>

@@ -47,10 +47,9 @@ const AuthContextProvider = (props) => {
 		return currentUser.updatePassword({ password });
 	};
 
+	// auth state changed
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
-			// auth state changed (user logged in or out)
-			console.log('Auth state changed', user);
 			setCurrentUser(user);
 			setLoading(false);
 		});
