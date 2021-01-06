@@ -18,21 +18,27 @@ const Navigation = () => {
 					<Navbar.Collapse id='basic-navbar-nav'>
 						<Nav className='ml-auto'>
 							{currentUser ? (
-								<NavDropdown
-									title={currentUser.email}
-									id='basic-nav-dropdown'
-								>
-									<NavDropdown.Divider />
-									<NavLink
-										to='/logout'
-										className='dropdown-item'
-									>
-										Log Out
+								<>
+									<NavLink to='/albums' className='nav-link'>
+										Albums
 									</NavLink>
-								</NavDropdown>
+
+									<NavDropdown
+										title={currentUser.email}
+										id='basic-nav-dropdown'
+									>
+										<NavDropdown.Divider />
+										<NavLink
+											to='/logout'
+											className='dropdown-item'
+										>
+											Log out
+										</NavLink>
+									</NavDropdown>
+								</>
 							) : (
 								<NavLink to='/login' className='nav-link'>
-									Log In
+									Log in
 								</NavLink>
 							)}
 						</Nav>
