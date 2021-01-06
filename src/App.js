@@ -10,6 +10,9 @@ import Logout from './components/Logout';
 import Navigation from './components/Navigation';
 import NotFound from './components/NotFound';
 import Signup from './components/Signup';
+import Albums from './components/albums/Albums';
+import CreateAlbum from './components/albums/CreateAlbum';
+import Album from './components/albums/Album';
 
 const App = () => {
 	return (
@@ -21,6 +24,20 @@ const App = () => {
 					<Routes>
 						<Route path='/'>
 							<Home />
+						</Route>
+
+						<Route path='/albums'>
+							<Route path='/'>
+								<Albums />
+							</Route>
+
+							<Route path='/create'>
+								<CreateAlbum />
+							</Route>
+
+							<Route path='/:albumId'>
+								<Album />
+							</Route>
 						</Route>
 
 						<Route path='/signup'>
