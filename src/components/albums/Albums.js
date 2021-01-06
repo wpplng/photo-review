@@ -11,7 +11,7 @@ const Albums = () => {
 
 	return (
 		<>
-			<h2 className='mb-4'>Photo Albums</h2>
+			<h2 className='mb-4 text-center'>Photo Albums</h2>
 
 			{loading ? (
 				<Spinner animation='border' role='status'>
