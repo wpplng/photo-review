@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useAlbum from '../../hooks/useAlbum';
 import ImagesGrid from './ImageGrid';
-import Spinner from 'react-bootstrap/Spinner';
+import { Alert, Button, Spinner } from 'react-bootstrap';
 import UploadImage from './UploadImage';
 
 const Album = () => {
 	const { albumId } = useParams();
+	const params = useParams();
 	const { album, images, loading } = useAlbum(albumId);
+	const [inviteLink, setInviteLink] = useState(null);
+
+	console.log('albumId', albumId);
+
+	const handleInviteLink = () => {
+		console.log('Does this work?', params);
+		setInviteLink(`/review/${albumId}`);
+	};
 
 	return (
 		<>
@@ -21,6 +30,20 @@ const Album = () => {
 				</Spinner>
 			) : (
 				<ImagesGrid images={images} />
+			)}
+
+			{inviteLink ? (
+				<Alert variant='success'>
+					Invite link for customer: {inviteLink}
+				</Alert>
+			) : (
+				<Button
+					variant='outline-primary'
+					onClick={handleInviteLink}
+					disabled={loading}
+				>
+					Create invite link
+				</Button>
 			)}
 		</>
 	);
