@@ -14,6 +14,7 @@ import Signup from './components/Signup';
 import Albums from './components/albums/Albums';
 import CreateAlbum from './components/albums/CreateAlbum';
 import Album from './components/albums/Album';
+import ReviewAlbum from './components/albums/ReviewAlbum';
 
 const App = () => {
 	return (
@@ -39,6 +40,10 @@ const App = () => {
 
 								<Route path='/:albumId'>
 									<Album />
+								</Route>
+
+								<Route path='/review/:albumId'>
+									<ReviewAlbum />
 								</Route>
 							</Route>
 

@@ -11,7 +11,7 @@ const Album = () => {
 	const [inviteLink, setInviteLink] = useState(null);
 
 	const handleInviteLink = () => {
-		setInviteLink(`/review/${albumId}`);
+		setInviteLink(`/albums/review/${albumId}`);
 	};
 
 	return (
