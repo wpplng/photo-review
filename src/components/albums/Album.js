@@ -7,14 +7,10 @@ import UploadImage from './UploadImage';
 
 const Album = () => {
 	const { albumId } = useParams();
-	const params = useParams();
 	const { album, images, loading } = useAlbum(albumId);
 	const [inviteLink, setInviteLink] = useState(null);
 
-	console.log('albumId', albumId);
-
 	const handleInviteLink = () => {
-		console.log('Does this work?', params);
 		setInviteLink(`/review/${albumId}`);
 	};
 
