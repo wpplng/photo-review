@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useAlbum from '../../hooks/useAlbum';
 import ImagesGrid from './ImageGrid';
 import { Alert, Button, Spinner } from 'react-bootstrap';
@@ -9,9 +9,10 @@ const Album = () => {
 	const { albumId } = useParams();
 	const { album, images, loading } = useAlbum(albumId);
 	const [inviteLink, setInviteLink] = useState(null);
+	const baseUrl = 'http://localhost:3000';
 
 	const handleInviteLink = () => {
-		setInviteLink(`/albums/review/${albumId}`);
+		setInviteLink(`${baseUrl}/albums/review/${albumId}`);
 	};
 
 	return (
@@ -41,6 +42,10 @@ const Album = () => {
 					Create invite link
 				</Button>
 			)}
+
+			<div className='text-center mt-4'>
+				<Link to={`/albums/${albumId}/edit`}>Edit album title?</Link>
+			</div>
 		</>
 	);
 };
