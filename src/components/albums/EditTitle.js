@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { db } from '../../firebase';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 
 const EditTitle = () => {
 	const [title, setTitle] = useState('');
@@ -9,6 +9,7 @@ const EditTitle = () => {
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 	const { albumId } = useParams();
+	const { state } = useLocation();
 
 	const handleChangeTitle = (e) => {
 		setTitle(e.target.value);
@@ -41,7 +42,12 @@ const EditTitle = () => {
 		<>
 			<Row>
 				<Col md={{ span: 6, offset: 3 }}>
-					<h3 className='text-center my-3'>Edit album title</h3>
+					<h3 className='text-center my-3'>
+						Edit title for album:{' '}
+						<span className='font-weight-bold'>
+							{state.album.title}
+						</span>
+					</h3>
 
 					{error && <Alert variant='danger'>{error}</Alert>}
 

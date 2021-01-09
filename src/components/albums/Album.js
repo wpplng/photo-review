@@ -44,7 +44,9 @@ const Album = () => {
 			)}
 
 			<div className='text-center mt-4'>
-				<Link to={`/albums/${albumId}/edit`}>Edit album title?</Link>
+				<Link to={`/albums/${albumId}/edit`} state={{ album }}>
+					Edit album title?
+				</Link>
 			</div>
 		</>
 	);
