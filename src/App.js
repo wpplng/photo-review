@@ -16,6 +16,7 @@ import CreateAlbum from './components/albums/CreateAlbum';
 import Album from './components/albums/Album';
 import ReviewAlbum from './components/albums/ReviewAlbum';
 import EditTitle from './components/albums/EditTitle';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
 	return (
@@ -31,21 +32,21 @@ const App = () => {
 							</Route>
 
 							<Route path='/albums'>
-								<Route path='/'>
+								<ProtectedRoute path='/'>
 									<Albums />
-								</Route>
+								</ProtectedRoute>
 
-								<Route path='/create'>
+								<ProtectedRoute path='/create'>
 									<CreateAlbum />
-								</Route>
+								</ProtectedRoute>
 
-								<Route path='/:albumId'>
+								<ProtectedRoute path='/:albumId'>
 									<Album />
-								</Route>
+								</ProtectedRoute>
 
-								<Route path='/:albumId/edit'>
+								<ProtectedRoute path='/:albumId/edit'>
 									<EditTitle />
-								</Route>
+								</ProtectedRoute>
 
 								<Route path='/review/:albumId'>
 									<ReviewAlbum />
