@@ -26,7 +26,7 @@ const Album = () => {
 					<span className='sr-only'>Loading...</span>
 				</Spinner>
 			) : (
-				<ImagesGrid images={images} />
+				<ImagesGrid images={images} album={album} />
 			)}
 
 			{inviteLink ? (
