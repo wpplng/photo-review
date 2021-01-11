@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import { SRLWrapper } from 'simple-react-lightbox';
 
 const ImageGrid = ({ images }) => {
+	const [selectedImages, setSelectedImages] = useState([]);
+
+	const handleSelectImages = (e, image) => {
+		let newAlbumImages;
+		if (e.target.checked) {
+			if (selectedImages.length === 0) {
+				newAlbumImages = [];
+			} else {
+				newAlbumImages = [...selectedImages];
+			}
+
+			newAlbumImages.push(image);
+			setSelectedImages(newAlbumImages);
+		} else {
+			newAlbumImages = selectedImages.filter(
+				(img) => img.id !== image.id
+			);
+			setSelectedImages(newAlbumImages);
+		}
+	};
+	console.log(selectedImages);
+
 	return (
 		<SRLWrapper>
 			<Row className='my-3'>
@@ -25,6 +47,22 @@ const ImageGrid = ({ images }) => {
 									{image.name} (
 									{Math.round(image.size / 1024)} kb)
 								</Card.Text>
+								<div>
+									<input
+										type='checkbox'
+										name='select-image'
+										id={image.id}
+										onChange={(e) => {
+											handleSelectImages(e, image);
+										}}
+									/>
+									<label
+										className='ml-2'
+										htmlFor='select-image'
+									>
+										Select image
+									</label>
+								</div>
 							</Card.Body>
 						</Card>
 					</Col>
