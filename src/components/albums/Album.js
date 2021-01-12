@@ -21,6 +21,10 @@ const Album = () => {
 
 			<UploadImage albumId={albumId} />
 
+			<p className='text-muted small'>
+				Select images to create a new album.
+			</p>
+
 			{loading ? (
 				<Spinner animation='border' role='status'>
 					<span className='sr-only'>Loading...</span>

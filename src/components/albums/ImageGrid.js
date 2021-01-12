@@ -104,7 +104,7 @@ const ImageGrid = ({ images, album }) => {
 			{selectedImages.length > 0 && (
 				<div>
 					<Button
-						className='mb-2'
+						className='mb-3'
 						variant='secondary'
 						onClick={handleCreateNewAlbum}
 					>
