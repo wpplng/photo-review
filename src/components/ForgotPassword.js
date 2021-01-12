@@ -51,7 +51,7 @@ const ForgotPassword = () => {
 						</Form.Group>
 
 						<Button
-							variant='outline-primary'
+							variant='secondary'
 							type='submit'
 							disabled={loading}
 						>
@@ -61,7 +61,9 @@ const ForgotPassword = () => {
 
 					<div className='text-center mt-4'>
 						<p>
-							<Link to='/login'>Log in?</Link>
+							<Link to='/login' className='link'>
+								Log in?
+							</Link>
 						</p>
 					</div>
 				</Col>

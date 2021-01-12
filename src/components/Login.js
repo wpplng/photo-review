@@ -57,7 +57,7 @@ const Login = () => {
 						</Form.Group>
 
 						<Button
-							variant='outline-primary'
+							variant='secondary'
 							type='submit'
 							disabled={loading}
 						>
@@ -67,10 +67,12 @@ const Login = () => {
 
 					<div className='text-center mt-4'>
 						<p>
-							<Link to='/signup'>Sign up?</Link>
+							<Link to='/signup' className='link'>
+								Sign up?
+							</Link>
 						</p>
 						<p>
-							<Link to='/forgot-password'>
+							<Link to='/forgot-password' className='link'>
 								Forgot your password?
 							</Link>
 						</p>

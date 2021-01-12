@@ -105,7 +105,7 @@ const ImageGrid = ({ images, album }) => {
 				<div>
 					<Button
 						className='mb-2'
-						variant='outline-success'
+						variant='secondary'
 						onClick={handleCreateNewAlbum}
 					>
 						Create new album

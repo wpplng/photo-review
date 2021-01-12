@@ -23,10 +23,7 @@ const Albums = () => {
 
 			{currentUser && (
 				<div className='mt-3'>
-					<Link
-						to='/albums/create'
-						className='btn btn-outline-primary'
-					>
+					<Link to='/albums/create' className='btn btn-secondary'>
 						Create new album
 					</Link>
 				</div>

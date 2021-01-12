@@ -72,7 +72,7 @@ const Signup = () => {
 						</Form.Group>
 
 						<Button
-							variant='outline-primary'
+							variant='secondary'
 							type='submit'
 							disabled={loading}
 						>
@@ -81,7 +81,9 @@ const Signup = () => {
 					</Form>
 
 					<div className='text-center mt-4'>
-						<Link to='/login'>Log in?</Link>
+						<Link to='/login' className='link'>
+							Log in?
+						</Link>
 					</div>
 				</Col>
 			</Row>

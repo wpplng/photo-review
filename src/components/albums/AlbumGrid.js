@@ -8,7 +8,6 @@ const AlbumGrid = ({ albums }) => {
 			{albums.map((album) => (
 				<Col sm={6} md={4} lg={3} key={album.id}>
 					<Card className='mb-3'>
-						<Link to={`/albums/${album.id}`}></Link>
 						<Card.Body>
 							<Card.Title>
 								<Link to={`/albums/${album.id}`}>

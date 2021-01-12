@@ -188,7 +188,7 @@ const ReviewImageGrid = ({ images, album }) => {
 				<div>
 					<Button
 						className='mb-2'
-						variant='outline-primary'
+						variant='secondary'
 						onClick={handleCreateNewAlbum}
 					>
 						Send review

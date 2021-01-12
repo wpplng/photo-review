@@ -22,8 +22,6 @@ const CreateAlbum = () => {
 			return;
 		}
 
-		console.log(`create album with title: ${title}`);
-
 		setError(false);
 		setLoading(true);
 
@@ -67,7 +65,7 @@ const CreateAlbum = () => {
 						</Form.Group>
 
 						<Button
-							variant='outline-primary'
+							variant='secondary'
 							type='submit'
 							disabled={loading}
 						>

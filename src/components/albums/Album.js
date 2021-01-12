@@ -35,7 +35,7 @@ const Album = () => {
 				</Alert>
 			) : (
 				<Button
-					variant='outline-primary'
+					variant='secondary'
 					onClick={handleInviteLink}
 					disabled={loading}
 				>
@@ -44,7 +44,11 @@ const Album = () => {
 			)}
 
 			<div className='text-center mt-4'>
-				<Link to={`/albums/${albumId}/edit`} state={{ album }}>
+				<Link
+					to={`/albums/${albumId}/edit`}
+					state={{ album }}
+					className='link'
+				>
 					Edit album title?
 				</Link>
 			</div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { db } from '../../firebase';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { useNavigate, useParams, useLocation, Link } from 'react-router-dom';
 
 const EditTitle = () => {
 	const [title, setTitle] = useState('');
@@ -68,13 +68,21 @@ const EditTitle = () => {
 						</Form.Group>
 
 						<Button
-							variant='outline-primary'
+							variant='secondary'
 							type='submit'
 							disabled={loading}
 						>
 							Edit title
 						</Button>
 					</Form>
+
+					<div className='text-center mt-4'>
+						<p>
+							<Link to={`/albums/${albumId}`} className='link'>
+								Back to album?
+							</Link>
+						</p>
+					</div>
 				</Col>
 			</Row>
 		</>
