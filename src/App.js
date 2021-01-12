@@ -17,6 +17,7 @@ import Album from './components/albums/Album';
 import ReviewAlbum from './components/albums/ReviewAlbum';
 import EditTitle from './components/albums/EditTitle';
 import ProtectedRoute from './components/ProtectedRoute';
+import ReviewSent from './components/ReviewSent';
 
 const App = () => {
 	return (
@@ -67,6 +68,10 @@ const App = () => {
 
 							<Route path='/forgot-password'>
 								<ForgotPassword />
+							</Route>
+
+							<Route path='/review-sent'>
+								<ReviewSent />
 							</Route>
 
 							<Route path='*' element={<NotFound />} />

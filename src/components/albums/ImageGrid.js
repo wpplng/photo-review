@@ -27,7 +27,6 @@ const ImageGrid = ({ images, album }) => {
 			setSelectedImages(newAlbumImages);
 		}
 	};
-	console.log(selectedImages);
 
 	const handleCreateNewAlbum = async () => {
 		const newTitle = `${album.title}-${Date.now()}`;

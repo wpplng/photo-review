@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useAlbum from '../../hooks/useAlbum';
-import ImagesGrid from './ImageGrid';
+import ReviewImagesGrid from './ReviewImageGrid';
 import { Spinner } from 'react-bootstrap';
 
 const ReviewAlbum = () => {
@@ -11,13 +11,17 @@ const ReviewAlbum = () => {
 	return (
 		<>
 			<h2 className='mb-4 text-center'>{album && album.title}</h2>
+			<p className='text-muted small'>
+				Please select like or dislike on all photos before sending your
+				review.
+			</p>
 
 			{loading ? (
 				<Spinner animation='border' role='status'>
 					<span className='sr-only'>Loading...</span>
 				</Spinner>
 			) : (
-				<ImagesGrid images={images} />
+				<ReviewImagesGrid images={images} album={album} />
 			)}
 		</>
 	);
