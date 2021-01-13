@@ -43,7 +43,9 @@ const ReviewImageGrid = ({ images, album }) => {
 	};
 
 	const handleCreateNewAlbum = async () => {
-		const newTitle = `${album.title}-${Date.now()}`;
+		const time = Date.now();
+		const now = new Date(time);
+		const newTitle = `${album.title}-${now.toUTCString()}`;
 
 		setError(false);
 
@@ -112,9 +114,12 @@ const ReviewImageGrid = ({ images, album }) => {
 
 			{likedImages.length > 0 && (
 				<div>
-					<h4 className='my-4 text-center'>
-						Liked images {likedImages.length}/{images.length}
-					</h4>
+					<h5 className='my-4 text-center'>
+						Liked images:{' '}
+						<span className='font-weight-lighter'>
+							{likedImages.length}/{images.length}
+						</span>
+					</h5>
 					<Row className='my-3'>
 						{likedImages.map((image) => (
 							<Col xs={6} md={3} lg={2} key={image.id}>
@@ -139,9 +144,12 @@ const ReviewImageGrid = ({ images, album }) => {
 
 			{dislikedImages.length > 0 && (
 				<div>
-					<h4 className='my-4 text-center'>
-						Disliked images {dislikedImages.length}/{images.length}
-					</h4>
+					<h5 className='my-4 text-center'>
+						Disliked images:{' '}
+						<span className='font-weight-lighter'>
+							{dislikedImages.length}/{images.length}
+						</span>
+					</h5>
 
 					<Row className='my-3'>
 						{dislikedImages.map((image) => (

@@ -29,7 +29,9 @@ const ImageGrid = ({ images, album }) => {
 	};
 
 	const handleCreateNewAlbum = async () => {
-		const newTitle = `${album.title}-${Date.now()}`;
+		const time = Date.now();
+		const now = new Date(time);
+		const newTitle = `${album.title}-${now.toUTCString()}`;
 
 		setError(false);
 
