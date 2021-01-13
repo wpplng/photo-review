@@ -34,7 +34,7 @@ const Album = () => {
 			)}
 
 			{inviteLink ? (
-				<Alert variant='success'>
+				<Alert variant='secondary'>
 					Invite link for customer: {inviteLink}
 				</Alert>
 			) : (

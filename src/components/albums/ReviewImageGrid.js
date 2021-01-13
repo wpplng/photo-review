@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
-import {
-	Row,
-	Col,
-	Card,
-	ButtonGroup,
-	ToggleButton,
-	Button,
-	Alert,
-} from 'react-bootstrap';
+import { Row, Col, Card, Button, Alert } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { SRLWrapper } from 'simple-react-lightbox';
 import { db } from '../../firebase';
@@ -95,33 +89,20 @@ const ReviewImageGrid = ({ images, album }) => {
 								/>
 							</a>
 							<Card.Body>
-								<Card.Text className='text-muted small'>
-									{image.name} (
-									{Math.round(image.size / 1024)} kb)
-								</Card.Text>
-								<div>
-									<ButtonGroup toggle className='mb-2'>
-										<ToggleButton
-											type='checkbox'
-											variant='success'
-											value='like'
-											onChange={() =>
-												handleLikeImage(image)
-											}
-										>
-											Like
-										</ToggleButton>
-										<ToggleButton
-											type='checkbox'
-											variant='danger'
-											value='dislike'
-											onChange={() =>
-												handleDislikeImage(image)
-											}
-										>
-											Dislike
-										</ToggleButton>
-									</ButtonGroup>
+								<div className='d-flex justify-content-between'>
+									<FontAwesomeIcon
+										className='icon'
+										icon={faHeart}
+										onClick={() => handleLikeImage(image)}
+									/>
+
+									<FontAwesomeIcon
+										className='icon'
+										icon={faTimes}
+										onClick={() =>
+											handleDislikeImage(image)
+										}
+									/>
 								</div>
 							</Card.Body>
 						</Card>
@@ -184,17 +165,18 @@ const ReviewImageGrid = ({ images, album }) => {
 				</div>
 			)}
 
-			{likedImages.length + dislikedImages.length === images.length && (
-				<div>
-					<Button
-						className='mb-2'
-						variant='secondary'
-						onClick={handleCreateNewAlbum}
-					>
-						Send review
-					</Button>
-				</div>
-			)}
+			{likedImages.length + dislikedImages.length === images.length &&
+				likedImages.length > 0 && (
+					<div>
+						<Button
+							className='mb-2'
+							variant='secondary'
+							onClick={handleCreateNewAlbum}
+						>
+							Send review
+						</Button>
+					</div>
+				)}
 		</SRLWrapper>
 	);
 };

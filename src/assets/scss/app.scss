@@ -36,6 +36,7 @@ $headings-font-weight: 600;
 
 body {
 	background-color: #f3f2ef;
+	color: #37373e;
 }
 
 .card a {
@@ -50,4 +51,9 @@ body {
 .secondary {
 	background-color: #55555c;
 	border-color: #55555c;
+}
+
+.icon {
+	color: #37373e;
+	font-size: large;
 }
