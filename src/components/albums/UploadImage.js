@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Alert from 'react-bootstrap/Alert';
-import ProgressBar from 'react-bootstrap/esm/ProgressBar';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useDropzone } from 'react-dropzone';
 import useUploadImage from '../../hooks/useUploadImage';
 
@@ -85,7 +85,11 @@ const UploadImage = ({ albumId }) => {
 			)}
 
 			{uploadProgress !== null && (
-				<ProgressBar variant='success' animated now={uploadProgress} />
+				<ProgressBar
+					variant='secondary'
+					animated
+					now={uploadProgress}
+				/>
 			)}
 
 			{message && (

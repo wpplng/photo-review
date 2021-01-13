@@ -12,6 +12,14 @@ const Albums = () => {
 	return (
 		<>
 			<h2 className='mb-4 text-center'>Photo Albums</h2>
+			{currentUser && (
+				<p className='text-muted small'>
+					Showing albums for user:{' '}
+					<span className='font-weight-bold'>
+						{currentUser.email}
+					</span>
+				</p>
+			)}
 
 			{loading ? (
 				<Spinner animation='border' role='status'>

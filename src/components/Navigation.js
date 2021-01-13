@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -23,18 +23,9 @@ const Navigation = () => {
 										Albums
 									</NavLink>
 
-									<NavDropdown
-										title={currentUser.email}
-										id='basic-nav-dropdown'
-									>
-										<NavDropdown.Divider />
-										<NavLink
-											to='/logout'
-											className='dropdown-item'
-										>
-											Log out
-										</NavLink>
-									</NavDropdown>
+									<NavLink to='/logout' className='nav-link'>
+										Log out
+									</NavLink>
 								</>
 							) : (
 								<NavLink to='/login' className='nav-link'>
