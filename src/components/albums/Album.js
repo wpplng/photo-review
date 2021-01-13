@@ -9,7 +9,8 @@ const Album = () => {
 	const { albumId } = useParams();
 	const { album, images, loading } = useAlbum(albumId);
 	const [inviteLink, setInviteLink] = useState(null);
-	const baseUrl = 'http://localhost:3000';
+	// const baseUrl = 'http://localhost:3000';
+	const baseUrl = 'https://lina-photo-review.herokuapp.com';
 
 	const handleInviteLink = () => {
 		setInviteLink(`${baseUrl}/albums/review/${albumId}`);
@@ -35,7 +36,8 @@ const Album = () => {
 
 			{inviteLink ? (
 				<Alert variant='secondary'>
-					Invite link for customer: {inviteLink}
+					Invite link for customer:{' '}
+					<p className='font-weight-bold'>{inviteLink}</p>
 				</Alert>
 			) : (
 				<Button
