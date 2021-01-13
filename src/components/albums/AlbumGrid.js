@@ -1,24 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card } from 'react-bootstrap';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const AlbumGrid = ({ albums }) => {
 	return (
-		<Row>
+		<ListGroup variant='flush'>
 			{albums.map((album) => (
-				<Col sm={6} md={4} lg={3} key={album.id}>
-					<Card className='mb-3'>
-						<Card.Body>
-							<Card.Title>
-								<Link to={`/albums/${album.id}`}>
-									{album.title}
-								</Link>
-							</Card.Title>
-						</Card.Body>
-					</Card>
-				</Col>
+				<ListGroupItem key={album.id}>
+					<Link to={`/albums/${album.id}`}>{album.title}</Link>
+				</ListGroupItem>
 			))}
-		</Row>
+		</ListGroup>
 	);
 };
 

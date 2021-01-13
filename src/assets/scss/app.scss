@@ -39,11 +39,8 @@ body {
 	color: #37373e;
 }
 
-.card a {
-	@extend .text-dark;
-}
-
-.link {
+.link,
+.list-group a {
 	@extend .text-dark;
 }
 
