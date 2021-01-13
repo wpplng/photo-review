@@ -34,6 +34,10 @@ $headings-font-weight: 600;
 	}
 }
 
+#dropzone-wrapper:hover {
+	cursor: pointer;
+}
+
 body {
 	background-color: #f3f2ef;
 	color: #37373e;
@@ -53,4 +57,7 @@ body {
 .icon {
 	color: #37373e;
 	font-size: large;
+	:hover {
+		cursor: pointer;
+	}
 }
