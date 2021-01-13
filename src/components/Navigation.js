@@ -8,7 +8,7 @@ const Navigation = () => {
 
 	return (
 		<>
-			<Navbar bg='dark' variant='dark'>
+			<Navbar variant='dark'>
 				<Container>
 					<Link to='/' className='navbar-brand'>
 						Photo Review

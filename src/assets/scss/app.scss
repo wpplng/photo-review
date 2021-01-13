@@ -8,10 +8,14 @@ $headings-font-weight: 600;
 
 @import '~bootstrap/scss/bootstrap';
 
+.navbar {
+	background-color: #8b7369;
+}
+
 #dropzone-wrapper {
-	background-color: #eee;
+	background-color: #e1dedd;
 	border-radius: 4px;
-	border: 4px dotted #ccc;
+	border: 2px dotted #a89793;
 
 	&.drag-accept {
 		background-color: #d4edda;
@@ -40,4 +44,10 @@ body {
 
 .link {
 	@extend .text-dark;
+}
+
+.btn-secondary,
+.secondary {
+	background-color: #55555c;
+	border-color: #55555c;
 }
