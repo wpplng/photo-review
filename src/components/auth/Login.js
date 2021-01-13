@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Alert, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
-const Signup = () => {
+const Login = () => {
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const passwordConfirmationRef = useRef();
-	const { signup } = useAuth();
+	const { login } = useAuth();
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
@@ -15,22 +14,17 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		// set error state if the passwords does not match
-		if (
-			passwordRef.current.value !== passwordConfirmationRef.current.value
-		) {
-			setError('The passwords has to be the same');
-			return;
-		}
 		setError(null);
 
-		// await signup and navigate to home
+		// await login and navigate to home
 		try {
 			setLoading(true);
-			await signup(emailRef.current.value, passwordRef.current.value);
+			await login(emailRef.current.value, passwordRef.current.value);
 			navigate('/');
 		} catch (e) {
-			setError(e.message);
+			setError(
+				'An error occured when trying to login. Please try again.'
+			);
 			setLoading(false);
 		}
 	};
@@ -39,7 +33,7 @@ const Signup = () => {
 		<>
 			<Row>
 				<Col md={{ span: 6, offset: 3 }}>
-					<h3 className='text-center my-3'>Create account</h3>
+					<h3 className='text-center my-3'>Log in</h3>
 
 					{error && <Alert variant='danger'>{error}</Alert>}
 
@@ -62,28 +56,26 @@ const Signup = () => {
 							/>
 						</Form.Group>
 
-						<Form.Group controlId='password-confirmation'>
-							<Form.Label>Confirm Password</Form.Label>
-							<Form.Control
-								type='password'
-								ref={passwordConfirmationRef}
-								required
-							/>
-						</Form.Group>
-
 						<Button
 							variant='secondary'
 							type='submit'
 							disabled={loading}
 						>
-							Sign up
+							Log in
 						</Button>
 					</Form>
 
 					<div className='text-center mt-4'>
-						<Link to='/login' className='link'>
-							Log in?
-						</Link>
+						<p>
+							<Link to='/signup' className='link'>
+								Sign up?
+							</Link>
+						</p>
+						<p>
+							<Link to='/forgot-password' className='link'>
+								Forgot your password?
+							</Link>
+						</p>
 					</div>
 				</Col>
 			</Row>
@@ -91,4 +83,4 @@ const Signup = () => {
 	);
 };
 
-export default Signup;
+export default Login;

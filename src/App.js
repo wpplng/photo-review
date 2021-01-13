@@ -4,19 +4,19 @@ import './assets/scss/app.scss';
 import { Container } from 'react-bootstrap';
 import AuthContextProvider from './context/AuthContext';
 import SimpleReactLightbox from 'simple-react-lightbox';
-import ForgotPassword from './components/ForgotPassword';
+import ForgotPassword from './components/auth/ForgotPassword';
 import Home from './components/Home';
-import Login from './components/Login';
-import Logout from './components/Logout';
+import Login from './components/auth/Login';
+import Logout from './components/auth/Logout';
 import Navigation from './components/Navigation';
 import NotFound from './components/NotFound';
-import Signup from './components/Signup';
+import Signup from './components/auth/Signup';
 import Albums from './components/albums/Albums';
 import CreateAlbum from './components/albums/CreateAlbum';
 import Album from './components/albums/Album';
 import ReviewAlbum from './components/albums/ReviewAlbum';
 import EditTitle from './components/albums/EditTitle';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import ReviewSent from './components/ReviewSent';
 
 const App = () => {

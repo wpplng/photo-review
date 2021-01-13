@@ -1,14 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Alert, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
-const Login = () => {
+const ForgotPassword = () => {
 	const emailRef = useRef();
-	const passwordRef = useRef();
-	const { login } = useAuth();
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
+	const { forgotPassword } = useAuth();
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
@@ -16,14 +15,14 @@ const Login = () => {
 
 		setError(null);
 
-		// await login and navigate to home
+		// await forgotPassword and navigate to login
 		try {
 			setLoading(true);
-			await login(emailRef.current.value, passwordRef.current.value);
-			navigate('/');
+			await forgotPassword(emailRef.current.value);
+			navigate('/login');
 		} catch (e) {
 			setError(
-				'An error occured when trying to login. Please try again.'
+				'Something went wrong. Please check that the email address is correct.'
 			);
 			setLoading(false);
 		}
@@ -33,7 +32,7 @@ const Login = () => {
 		<>
 			<Row>
 				<Col md={{ span: 6, offset: 3 }}>
-					<h3 className='text-center my-3'>Log in</h3>
+					<h3 className='text-center my-3'>Reset password</h3>
 
 					{error && <Alert variant='danger'>{error}</Alert>}
 
@@ -45,15 +44,10 @@ const Login = () => {
 								ref={emailRef}
 								required
 							/>
-						</Form.Group>
-
-						<Form.Group id='password'>
-							<Form.Label>Password</Form.Label>
-							<Form.Control
-								type='password'
-								ref={passwordRef}
-								required
-							/>
+							<Form.Text className='text-muted'>
+								An email with further instructions will be sent
+								to you.
+							</Form.Text>
 						</Form.Group>
 
 						<Button
@@ -61,19 +55,14 @@ const Login = () => {
 							type='submit'
 							disabled={loading}
 						>
-							Log in
+							Reset password
 						</Button>
 					</Form>
 
 					<div className='text-center mt-4'>
 						<p>
-							<Link to='/signup' className='link'>
-								Sign up?
-							</Link>
-						</p>
-						<p>
-							<Link to='/forgot-password' className='link'>
-								Forgot your password?
+							<Link to='/login' className='link'>
+								Log in?
 							</Link>
 						</p>
 					</div>
@@ -83,4 +72,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default ForgotPassword;
