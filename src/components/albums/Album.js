@@ -37,7 +37,7 @@ const Album = () => {
 			{inviteLink ? (
 				<Alert variant='secondary'>
 					Invite link for customer:{' '}
-					<p className='font-weight-bold'>{inviteLink}</p>
+					<span className='font-weight-bold'>{inviteLink}</span>
 				</Alert>
 			) : (
 				<Button

@@ -44,8 +44,17 @@ const ImageGrid = ({ images, album }) => {
 
 			// add images
 			selectedImages.forEach((img) => {
-				img.album = db.collection('albums').doc(albumRef.id);
-				db.collection('images').add(img);
+				const uploadImg = {
+					album: db.collection('albums').doc(albumRef.id),
+					name: img.name,
+					owner: img.owner,
+					path: img.path,
+					size: img.size,
+					type: img.type,
+					url: img.url,
+				};
+
+				db.collection('images').add(uploadImg);
 			});
 
 			navigate(`/albums/${albumRef.id}`);

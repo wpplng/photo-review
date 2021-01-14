@@ -42,12 +42,14 @@ const EditTitle = () => {
 		<>
 			<Row>
 				<Col md={{ span: 6, offset: 3 }}>
-					<h3 className='text-center my-3'>
-						Edit title for album:{' '}
-						<span className='font-weight-bold'>
-							{state.album.title}
-						</span>
-					</h3>
+					{state && (
+						<h3 className='text-center my-3'>
+							Edit title for album:{' '}
+							<span className='font-weight-bold'>
+								{state.album.title}
+							</span>
+						</h3>
+					)}
 
 					{error && <Alert variant='danger'>{error}</Alert>}
 
