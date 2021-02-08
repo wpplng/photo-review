@@ -21,7 +21,7 @@ const UploadImage = ({ albumId }) => {
 		} else if (isSuccess) {
 			setMessage({
 				success: true,
-				text: 'Image successfully uploaded',
+				text: 'Successfully uploaded',
 			});
 			setUploadImage(null);
 		} else {
@@ -36,7 +36,9 @@ const UploadImage = ({ albumId }) => {
 			return;
 		}
 
-		setUploadImage(acceptedFiles[0]);
+		acceptedFiles.forEach((file) => {
+			setUploadImage(file);
+		});
 	}, []);
 
 	const {
@@ -62,7 +64,7 @@ const UploadImage = ({ albumId }) => {
 			<input {...getInputProps()} />
 			{isDragActive ? (
 				isDragAccept ? (
-					<p>Drop your file...</p>
+					<p>Drop your files...</p>
 				) : (
 					<p>Not a valid file type</p>
 				)
